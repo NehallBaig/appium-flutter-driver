@@ -58,6 +58,8 @@ export const execute = async function(
       return await waitForAbsent(this, args[0], args[1]);
     case `waitFor`:
       return await waitFor(this, args[0], args[1]);
+    case `waitForDebug`:
+      return await waitFor(this, args[0], args[1]);    
     case `waitForTappable`:
       return await waitForTappable(this, args[0], args[1]);
     case `scroll`:
