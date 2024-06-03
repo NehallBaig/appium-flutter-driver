@@ -61,6 +61,8 @@ This snippet, taken from [example directory](example), is a script written as an
 > **Note**
 >
 > This means this driver depends on [`flutter_driver`](https://api.flutter.dev/flutter/flutter_driver/flutter_driver-library.html).
+> In the past, the Flutter team announced replacing `flutter_driver` with `integration_test`, but according to [this ticket](https://github.com/flutter/flutter/issues/148028), this discussion is still ongoing.
+> So flutter_driver would continue to be maintained for now.
 
 Each client needs [each finder](finder) module to handle [Finders](#Finders). Appium Flutter Driver communicates with the Dart VM directory in the `FLUTTER` context.
 
@@ -70,6 +72,15 @@ Each client needs [each finder](finder) module to handle [Finders](#Finders). Ap
 ### Doctor
 Since driver version 2.4.0 you can automate the validation for the most of the above requirements as well as various optional ones needed by driver extensions by running the `appium driver doctor flutter` server command.
 The check runs for Android for UIAutomator2 driver and iOS for XCUITest driver.
+
+`SKIP_ANDROID` or `SKIP_IOS` environment variable helps to skip these checks.
+
+```
+# skip Android check
+SKIP_ANDROID=1 appium driver doctor flutter
+# skip iOS check
+SKIP_IOS=1 appium driver doctor flutter
+```
 
 ### Note
 - Flutter context does not support page source
